@@ -10,9 +10,9 @@
 
 ## Approach and Implementation
 
-I built `swarmseg`, a config-driven 3D U-Net package, consolidating and adapting pieces of existing lab code (`swarm-segmentation-unet`, `swarm-segmentation-seeds`, `swarm-nematics`) into one clean codebase with a proper README, TorchIO augmentation, and Weights & Biases logging. The model is a flexible-depth `UNet3D` (`models/unet3d.py`), and I wrote patch-and-bump tiling (`core/patching.py`) so it can run inference on full volumes that don't fit in memory.
+I trained and helped build `swarmseg`, a config-driven 3D U-Net package, consolidating and adapting pieces of existing lab code (`swarm-segmentation-unet`, `swarm-segmentation-seeds`, `swarm-nematics`) into one clean codebase with a proper README, TorchIO augmentation, and Weights & Biases logging. The model is a flexible-depth `UNet3D` (`models/unet3d.py`), and I wrote patch-and-bump tiling (`core/patching.py`) so it can run inference on full volumes that don't fit in memory.
 
-Rather than commit to a single instance-extraction strategy up front, I implemented two inference paths: a **mask** path (threshold the foreground probability, then connected components) and a **seed** path (local-maxima seeded region growing). This lets me benchmark both against the same evaluator later. I want to be precise here for the record: the model that actually trains and runs is a foreground-mask U-Net (BCE loss), and I also scaffolded the affinity/graph-partition variant from the Week 5 plan as the more ambitious direction; the mask U-Net is what I could get training cleanly first.
+Rather than commit to a single instance-extraction strategy up front, we implemented two inference paths: a **mask** path (threshold the foreground probability, then connected components) and a **seed** path (local-maxima seeded region growing). This lets me benchmark both against the same evaluator later. I want to be precise here for the record: the model that actually trains and runs is a foreground-mask U-Net (BCE loss), and I also scaffolded the affinity/graph-partition variant from the Week 5 plan as the more ambitious direction; the mask U-Net is what I could get training cleanly first.
 
 ## Results
 
