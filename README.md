@@ -1,11 +1,27 @@
 # DREU Research Log
 
-**Student:** Your Full Name  
-**Mentor:** Mentor Full Name  
+**Student:** Anthony Bazhenov  
+**Mentor:** Danielle Chase  
+**Principal Investigator:** Orit Peleg  
+**Institution:** BioFrontiers Institute, University of Colorado Boulder  
 
-This repository contains your weekly research log for the Distributed Research Experiences for Undergraduates (DREU) program. It covers 10 weeks. All 10 log files are pre-created — you fill them in week by week.
+This repository contains my weekly research log for the Distributed Research Experiences for Undergraduates (DREU) program. It covers 10 weeks. All 10 log files are pre-created — I fill them in week by week.
 
-*Update the Student and Mentor fields above after forking.*
+## Research Project Description
+
+**3D honeybee instance segmentation.** The goal is to accurately separate individual
+bees in dense, touching clusters imaged by micro-CT. I first fine-tune and benchmark
+existing 3D segmentation baselines (StarDist and Cellpose), diagnose where they fail,
+and then build a new model that beats them. Segmentation is scored at the *instance*
+level (3D IoU matching, not pixel IoU) via 6-fold leave-one-out cross-validation over
+six labelled cubes, reporting F1/AP at IoU 0.5 and 0.75, splits/merges, and Variation
+of Information. The deliverable is a paper with publication-quality figures showing
+where the baselines fail and where our model succeeds.
+
+## Relocation Status
+
+Relocated in person to Boulder for the summer, working on-site with the Peleg Lab at
+the BioFrontiers Institute, University of Colorado Boulder.
 
 ## Repository Structure
 
